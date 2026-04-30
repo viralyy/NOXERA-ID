@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NOXERA ID — Open Member</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: #0b0b0c;
+  color: #e5e5e5;
+}
+
+.container {
+  max-width: 520px;
+  margin: auto;
+  padding: 24px 16px;
+}
+
+/* HEADER */
+.header {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.logo {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 2px solid #1f1f1f;
+  margin-bottom: 12px;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: #9ca3af;
+  margin-top: 6px;
+}
+
+/* CARD */
+.card {
+  background: #111214;
+  border: 1px solid #1f1f1f;
+  border-radius: 12px;
+  padding: 18px;
+  margin-bottom: 16px;
+}
+
+/* SECTION TITLE */
+.section-title {
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 10px;
+  color: #ffffff;
+}
+
+/* LIST */
+.list {
+  padding-left: 18px;
+  line-height: 1.7;
+  font-size: 14px;
+  color: #cfcfcf;
+}
+
+/* FORM */
+.form-group {
+  margin-bottom: 12px;
+}
+
+input, select {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #1f1f1f;
+  background: #0f1012;
+  color: #fff;
+  font-size: 14px;
+}
+
+input:focus, select:focus {
+  outline: none;
+  border-color: #3b82f6;
+}
+
+/* BUTTON */
+button {
+  width: 100%;
+  padding: 14px;
+  border-radius: 8px;
+  border: none;
+  background: #2563eb;
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+button:hover {
+  background: #1d4ed8;
+}
+
+/* SUCCESS */
+.success {
+  display: none;
+  margin-top: 12px;
+  padding: 10px;
+  border-radius: 8px;
+  background: #052e1a;
+  color: #4ade80;
+  font-size: 13px;
+  text-align: center;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="header">
+  <img class="logo" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj0BrEuL2LM71P1Ezl6HY-Eg7rp1IZe_I73-pVFRfzL741Dg9QZ5bjA1cPhACXqTBn_AAKfnQCRf0c5RJ-ShEVWqW_q9ap4boUmecUaqi3bVI40C8Bfn_v-VGzsGIaWlaWCq_5Hy3w_8KF-IiiZsa5Gc-QWx5-bDynfJCmszBdLhNJpu7-2ZKsBqGP7SLPt/s4096/129409.jpg">
+  <div class="title">NOXERA ID</div>
+  <div class="subtitle">Guild santai tapi tetap serius untuk push rank dan mabar rutin</div>
+</div>
+
+<div class="card">
+  <div class="section-title">Syarat Join</div>
+  <ul class="list">
+    <li>good attitude</li>
+    <li>no kutu loncat</li>
+    <li>on guild war</li>
+    <li>aktif minimal sehari sekali</li>
+    <li>level di atas 50</li>
+    <li>rank tidak ditentukan</li>
+  </ul>
+</div>
+
+<div class="card">
+  <div class="section-title">Form Pendaftaran</div>
+
+  <form id="form">
+
+    <div class="form-group">
+      <input type="text" id="nickname" placeholder="Nickname FF" required>
+    </div>
+
+    <div class="form-group">
+      <input type="text" id="idff" placeholder="ID Free Fire" required>
+    </div>
+
+    <div class="form-group">
+      <input type="number" id="umur" placeholder="Umur" required>
+    </div>
+
+    <div class="form-group">
+      <input type="text" id="wa" placeholder="Nomor WhatsApp" required>
+    </div>
+
+    <div class="form-group">
+      <select id="rank">
+        <option>Bronze</option>
+        <option>Silver</option>
+        <option>Gold</option>
+        <option>Platinum</option>
+        <option>Diamond</option>
+        <option>Heroic</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <select id="role">
+        <option>Rusher</option>
+        <option>Support</option>
+        <option>Sniper</option>
+        <option>All Role</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <select id="jam">
+        <option>Pagi</option>
+        <option>Siang</option>
+        <option>Malam</option>
+        <option>Bebas</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <select id="komitmen">
+        <option>Casual</option>
+        <option>Push Rank</option>
+        <option>Serius</option>
+      </select>
+    </div>
+
+    <button type="submit">Daftar Sekarang</button>
+
+    <div class="success" id="successMsg">
+      Data berhasil dikirim
+    </div>
+
+  </form>
+</div>
+
+</div>
+
+<script>
+const TOKEN = "8771424382:AAHqp_d9DG7_eEnmSzOVHFh-5bY_ZvRnbUQ";
+const CHAT_ID = "6153207906";
+
+document.getElementById("form").addEventListener("submit", function(e){
+e.preventDefault();
+
+let msg = `MEMBER BARU
+
+Nickname: ${nickname.value}
+ID: ${idff.value}
+Umur: ${umur.value}
+WA: ${wa.value}
+
+Rank: ${rank.value}
+Role: ${role.value}
+Jam: ${jam.value}
+Tipe: ${komitmen.value}
+`;
+
+fetch(`https://api.telegram.org/bot${TOKEN}/sendMessage`, {
+method: "POST",
+headers: {"Content-Type": "application/json"},
+body: JSON.stringify({
+chat_id: CHAT_ID,
+text: msg
+})
+})
+.then(() => {
+document.getElementById("successMsg").style.display = "block";
+form.reset();
+})
+.catch(() => {
+alert("Gagal kirim");
+});
+});
+</script>
+
+</body>
+</html>
