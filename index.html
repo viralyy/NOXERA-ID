@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Open Member NOXERA ID</title>
+
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(180deg, #0f0f0f, #000);
+    color: white;
+}
+
+.container {
+    max-width: 520px;
+    margin: auto;
+    padding: 20px;
+}
+
+/* LOGO */
+.logo {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.logo img {
+    width: 95px;
+    height: 95px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #ff3c3c;
+    box-shadow: 0 0 20px rgba(255,60,60,0.6);
+}
+
+/* TEXT */
+h1 {
+    text-align: center;
+    margin: 10px 0;
+    color: #ff3c3c;
+}
+
+.subtitle {
+    text-align: center;
+    color: #aaa;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+/* CARD */
+.card {
+    background: #1a1a1a;
+    padding: 16px;
+    border-radius: 12px;
+    margin-bottom: 15px;
+}
+
+/* FORM */
+input, select {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    border-radius: 8px;
+    border: none;
+    background: #2a2a2a;
+    color: white;
+}
+
+/* BUTTON */
+button {
+    width: 100%;
+    padding: 14px;
+    margin-top: 15px;
+    border: none;
+    border-radius: 10px;
+    background: #ff3c3c;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* SUCCESS */
+.success {
+    display: none;
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 8px;
+    background: #133013;
+    text-align: center;
+}
+
+.footer {
+    text-align: center;
+    color: #666;
+    font-size: 12px;
+    margin-top: 20px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- LOGO -->
+<div class="logo">
+<img 
+src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj0BrEuL2LM71P1Ezl6HY-Eg7rp1IZe_I73-pVFRfzL741Dg9QZ5bjA1cPhACXqTBn_AAKfnQCRf0c5RJ-ShEVWqW_q9ap4boUmecUaqi3bVI40C8Bfn_v-VGzsGIaWlaWCq_5Hy3w_8KF-IiiZsa5Gc-QWx5-bDynfJCmszBdLhNJpu7-2ZKsBqGP7SLPt/s4096/129409.jpg"
+referrerpolicy="no-referrer"
+onerror="this.src='https://via.placeholder.com/100x100?text=NOXERA';"
+>
+</div>
+
+<h1>NOXERA ID</h1>
+<p class="subtitle">Mabar santai, tapi tetep niat. No drama, fokus squad solid 🔥</p>
+
+<!-- DESKRIPSI -->
+<div class="card">
+Cari temen mabar yang aktif? disini tempatnya.  
+Yang penting niat, gak toxic, dan bisa diajak main bareng.
+</div>
+
+<!-- SYARAT -->
+<div class="card">
+<b>Syarat Join:</b><br><br>
+• good attitude<br>
+• no kutu loncat<br>
+• on guild war<br>
+• aktif minimal sehari sekali<br>
+• level di atas 50<br>
+• rank ngga di tentukan
+</div>
+
+<!-- FORM -->
+<div class="card">
+<b>Form Pendaftaran</b>
+
+<form id="form">
+
+<input type="text" id="nickname" placeholder="Nickname FF" required>
+<input type="text" id="idff" placeholder="ID Free Fire" required>
+<input type="number" id="umur" placeholder="Umur" required>
+<input type="text" id="wa" placeholder="Nomor WhatsApp" required>
+
+<select id="rank">
+<option>Bronze</option>
+<option>Silver</option>
+<option>Gold</option>
+<option>Platinum</option>
+<option>Diamond</option>
+<option>Heroic</option>
+</select>
+
+<select id="role">
+<option>Rusher</option>
+<option>Support</option>
+<option>Sniper</option>
+<option>All Role</option>
+</select>
+
+<select id="jam">
+<option>Pagi</option>
+<option>Siang</option>
+<option>Malam</option>
+<option>Bebas</option>
+</select>
+
+<select id="komitmen">
+<option>Casual</option>
+<option>Push Rank</option>
+<option>Serius / Squad Tetap</option>
+</select>
+
+<button type="submit">DAFTAR SEKARANG</button>
+
+<div class="success" id="successMsg">
+✅ Data berhasil dikirim!
+</div>
+
+</form>
+</div>
+
+<div class="footer">
+© NOXERA ID
+</div>
+
+</div>
+
+<script>
+(function(){
+    emailjs.init("VkzB5UmXE_ES93XZQ");
+})();
+
+document.getElementById("form").addEventListener("submit", function(e){
+    e.preventDefault();
+
+    emailjs.send("service_sjpebfw","template_0n1b1jd",{
+        nickname: nickname.value,
+        idff: idff.value,
+        umur: umur.value,
+        wa: wa.value,
+        rank: rank.value,
+        role: role.value,
+        jam: jam.value,
+        komitmen: komitmen.value,
+        date: new Date().toLocaleString()
+    })
+    .then(function(){
+        successMsg.style.display = "block";
+        form.reset();
+    });
+});
+</script>
+
+</body>
+</html>
