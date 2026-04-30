@@ -225,18 +225,28 @@ const CHAT_ID = "6153207906";
 document.getElementById("form").addEventListener("submit", function(e){
 e.preventDefault();
 
-let msg = `MEMBER BARU
+let msg = `NOXERA ID - PENDAFTARAN BARU
 
-Nickname: ${nickname.value}
-ID: ${idff.value}
-Umur: ${umur.value}
-WA: ${wa.value}
+━━━━━━━━━━━━━━
+DATA PLAYER
+━━━━━━━━━━━━━━
+Nickname : ${nickname.value}
+ID FF    : ${idff.value}
+Umur     : ${umur.value}
+WhatsApp : ${wa.value}
 
-Rank: ${rank.value}
-Role: ${role.value}
-Jam: ${jam.value}
-Tipe: ${komitmen.value}
-`;
+━━━━━━━━━━━━━━
+DETAIL GAME
+━━━━━━━━━━━━━━
+Rank     : ${rank.value}
+Role     : ${role.value}
+Jam Main : ${jam.value}
+Tipe     : ${komitmen.value}
+
+━━━━━━━━━━━━━━
+Waktu Daftar
+${new Date().toLocaleString()}
+━━━━━━━━━━━━━━`;
 
 fetch(`https://api.telegram.org/bot${TOKEN}/sendMessage`, {
 method: "POST",
