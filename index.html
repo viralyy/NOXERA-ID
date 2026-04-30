@@ -3,14 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NOXERA ID — Open Member</title>
+<title>NOXERA ID — Recruitment</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
 <style>
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 body {
   margin: 0;
@@ -28,12 +26,12 @@ body {
 /* HEADER */
 .header {
   text-align: center;
-  margin-bottom: 28px;
+  margin-bottom: 30px;
 }
 
 .logo {
-  width: 80px;
-  height: 80px;
+  width: 82px;
+  height: 82px;
   border-radius: 50%;
   border: 2px solid #1f1f1f;
   margin-bottom: 12px;
@@ -42,30 +40,29 @@ body {
 .title {
   font-size: 20px;
   font-weight: 600;
-  color: #ffffff;
+  color: #fff;
 }
 
 .subtitle {
   font-size: 14px;
   color: #9ca3af;
-  margin-top: 6px;
 }
 
 /* CARD */
 .card {
   background: #111214;
   border: 1px solid #1f1f1f;
-  border-radius: 12px;
+  border-radius: 14px;
   padding: 18px;
   margin-bottom: 16px;
 }
 
-/* SECTION TITLE */
+/* TITLE */
 .section-title {
   font-size: 14px;
   font-weight: 500;
-  margin-bottom: 10px;
-  color: #ffffff;
+  margin-bottom: 12px;
+  color: #fff;
 }
 
 /* LIST */
@@ -83,7 +80,7 @@ body {
 
 input, select {
   width: 100%;
-  padding: 12px;
+  padding: 13px;
   border-radius: 8px;
   border: 1px solid #1f1f1f;
   background: #0f1012;
@@ -106,7 +103,7 @@ button {
   color: white;
   font-weight: 500;
   cursor: pointer;
-  margin-top: 10px;
+  transition: 0.2s;
 }
 
 button:hover {
@@ -225,35 +222,32 @@ const CHAT_ID = "6153207906";
 document.getElementById("form").addEventListener("submit", function(e){
 e.preventDefault();
 
-let msg = `NOXERA ID - PENDAFTARAN BARU
+let msg = `
+<b>NOXERA ID</b>
+<i>New Member Registration</i>
 
 ━━━━━━━━━━━━━━
-DATA PLAYER
+<b>${nickname.value}</b>
+ID : <code>${idff.value}</code>
+WA : <code>${wa.value}</code>
 ━━━━━━━━━━━━━━
-Nickname : ${nickname.value}
-ID FF    : ${idff.value}
-Umur     : ${umur.value}
-WhatsApp : ${wa.value}
-
+Rank : ${rank.value}
+Role : ${role.value}
+Jam  : ${jam.value}
+Tipe : ${komitmen.value}
 ━━━━━━━━━━━━━━
-DETAIL GAME
-━━━━━━━━━━━━━━
-Rank     : ${rank.value}
-Role     : ${role.value}
-Jam Main : ${jam.value}
-Tipe     : ${komitmen.value}
-
-━━━━━━━━━━━━━━
-Waktu Daftar
-${new Date().toLocaleString()}
-━━━━━━━━━━━━━━`;
+<i>${new Date().toLocaleString()}</i>
+`;
 
 fetch(`https://api.telegram.org/bot${TOKEN}/sendMessage`, {
 method: "POST",
-headers: {"Content-Type": "application/json"},
+headers: {
+"Content-Type": "application/json"
+},
 body: JSON.stringify({
 chat_id: CHAT_ID,
-text: msg
+text: msg,
+parse_mode: "HTML"
 })
 })
 .then(() => {
