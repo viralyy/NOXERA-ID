@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Open Member NOXERA ID</title>
+
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #0f0f0f;
+    color: white;
+}
+
+.container {
+    max-width: 500px;
+    margin: auto;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #ff3c3c;
+}
+
+.card {
+    background: #1a1a1a;
+    padding: 15px;
+    border-radius: 12px;
+    margin-bottom: 15px;
+}
+
+input, select {
+    width: 100%;
+    padding: 12px;
+    margin-top: 8px;
+    border: none;
+    border-radius: 8px;
+    background: #2a2a2a;
+    color: white;
+}
+
+button {
+    width: 100%;
+    padding: 14px;
+    background: #ff3c3c;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #e63232;
+}
+
+.success {
+    display: none;
+    background: #1f3d1f;
+    padding: 12px;
+    border-radius: 8px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.footer {
+    text-align: center;
+    color: #777;
+    font-size: 12px;
+    margin-top: 20px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>OPEN MEMBER</h1>
+<h2 style="text-align:center;">NOXERA ID</h2>
+
+<div class="card">
+<p>Guild santai tapi serius push rank. No toxic, no kutu loncat. Fokus mabar & squad solid.</p>
+</div>
+
+<div class="card">
+<h3>Syarat Join</h3>
+<p>
+- Good Attitude<br>
+- No Kutu Loncat<br>
+- Wajib On Guild War<br>
+- Aktif Minimal 1x Sehari<br>
+- Level Diatas 50<br>
+- Rank Tidak Ditentukan<br> 
+</p>
+</div>
+
+<div class="card">
+<h3>Form Pendaftaran</h3>
+
+<form id="form">
+
+<input type="text" id="nickname" placeholder="Nickname FF" required>
+
+<input type="text" id="idff" placeholder="ID Free Fire" required>
+
+<input type="number" id="umur" placeholder="Umur" required>
+
+<input type="text" id="wa" placeholder="Nomor WhatsApp" required>
+
+<select id="rank">
+<option>Bronze</option>
+<option>Silver</option>
+<option>Gold</option>
+<option>Platinum</option>
+<option>Diamond</option>
+<option>Heroic</option>
+<option>Master</option>
+</select>
+
+<select id="role">
+<option>Rusher</option>
+<option>Support</option>
+<option>Sniper</option>
+<option>All Role</option>
+</select>
+
+<select id="jam">
+<option>Pagi</option>
+<option>Siang</option>
+<option>Malam</option>
+<option>Bebas</option>
+</select>
+
+<select id="komitmen">
+<option>Casual</option>
+<option>Push Rank</option>
+<option>Serius / Squad Tetap</option>
+</select>
+
+<button type="submit">REQUEST SEKARANG</button>
+
+<div class="success" id="successMsg">
+Pendaftaran berhasil dikirim!
+</div>
+
+</form>
+
+</div>
+
+<div class="footer">
+© NOXERA ID
+</div>
+
+</div>
+
+<script>
+(function(){
+    emailjs.init("VkzB5UmXE_ES93XZQ");
+})();
+
+const form = document.getElementById("form");
+
+form.addEventListener("submit", function(e){
+    e.preventDefault();
+
+    emailjs.send("service_sjpebfw","template_0n1b1jd",{
+        nickname: document.getElementById("nickname").value,
+        idff: document.getElementById("idff").value,
+        umur: document.getElementById("umur").value,
+        wa: document.getElementById("wa").value,
+        rank: document.getElementById("rank").value,
+        role: document.getElementById("role").value,
+        jam: document.getElementById("jam").value,
+        komitmen: document.getElementById("komitmen").value,
+        date: new Date().toLocaleString()
+    })
+    .then(function(){
+        document.getElementById("successMsg").style.display = "block";
+        form.reset();
+    }, function(error){
+        alert("Gagal kirim, cek console!");
+        console.log(error);
+    });
+});
+</script>
+
+</body>
+</html>
