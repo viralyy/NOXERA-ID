@@ -3,11 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NOXERA ID - Open Member</title>
+<title>NOXERA ID</title>
 
 <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
 
 <style>
+* {
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
     font-family: 'Segoe UI', sans-serif;
@@ -18,13 +22,13 @@ body {
 .container {
     max-width: 480px;
     margin: auto;
-    padding: 20px;
+    padding: 16px;
 }
 
 /* LOGO */
 .logo {
     text-align: center;
-    margin-top: 30px;
+    margin-top: 20px;
 }
 
 .logo img {
@@ -32,7 +36,6 @@ body {
     height: 90px;
     border-radius: 50%;
     border: 2px solid #ff3c3c;
-    object-fit: cover;
 }
 
 /* TITLE */
@@ -57,7 +60,7 @@ h1 {
     margin-bottom: 15px;
 }
 
-/* SYARAT FIX */
+/* SYARAT */
 .syarat {
     margin-top: 10px;
     padding-left: 18px;
@@ -69,15 +72,20 @@ h1 {
     color: #ddd;
 }
 
-/* FORM */
+/* FORM FIX */
+form {
+    margin-top: 10px;
+}
+
 input, select {
     width: 100%;
     padding: 12px;
     margin-top: 10px;
-    border-radius: 8px;
+    border-radius: 10px;
     border: none;
     background: #222;
     color: white;
+    display: block;
 }
 
 /* BUTTON */
@@ -86,7 +94,7 @@ button {
     padding: 14px;
     margin-top: 15px;
     border: none;
-    border-radius: 8px;
+    border-radius: 10px;
     background: #ff3c3c;
     color: white;
     font-weight: bold;
@@ -109,7 +117,6 @@ button {
 
 <div class="container">
 
-<!-- LOGO -->
 <div class="logo">
 <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj0BrEuL2LM71P1Ezl6HY-Eg7rp1IZe_I73-pVFRfzL741Dg9QZ5bjA1cPhACXqTBn_AAKfnQCRf0c5RJ-ShEVWqW_q9ap4boUmecUaqi3bVI40C8Bfn_v-VGzsGIaWlaWCq_5Hy3w_8KF-IiiZsa5Gc-QWx5-bDynfJCmszBdLhNJpu7-2ZKsBqGP7SLPt/s4096/129409.jpg">
 </div>
@@ -117,7 +124,6 @@ button {
 <h1>NOXERA ID</h1>
 <p class="desc">Guild santai tapi tetep serius. Mabar bareng, no drama.</p>
 
-<!-- SYARAT -->
 <div class="card">
 <b>Syarat Join:</b>
 
@@ -131,7 +137,6 @@ button {
 </ul>
 </div>
 
-<!-- FORM -->
 <div class="card">
 <b>Form Pendaftaran</b>
 
@@ -171,10 +176,10 @@ button {
 <option>Serius</option>
 </select>
 
-<button type="submit">DAFTAR SEKARANG</button>
+<button type="submit">REQ JOIN SEKARANG</button>
 
 <div class="success" id="successMsg">
-✅ Data berhasil dikirim!
+Data berhasil dikirim!
 </div>
 
 </form>
