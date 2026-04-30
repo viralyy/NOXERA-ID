@@ -175,6 +175,7 @@ button:hover {
         <option>Platinum</option>
         <option>Diamond</option>
         <option>Heroic</option>
+        <option>Master</option>
       </select>
     </div>
 
@@ -224,17 +225,23 @@ e.preventDefault();
 
 let msg = `
 <b>NOXERA ID</b>
-<i>New Member Registration</i>
+<i>Member Registration</i>
 
 ━━━━━━━━━━━━━━
-<b>${nickname.value}</b>
-ID : <code>${idff.value}</code>
-WA : <code>${wa.value}</code>
+<b>PLAYER</b>
 ━━━━━━━━━━━━━━
-Rank : ${rank.value}
-Role : ${role.value}
-Jam  : ${jam.value}
-Tipe : ${komitmen.value}
+• Nickname : <b>${nickname.value}</b>
+• ID       : <code>${idff.value}</code>
+• WA       : <code>${wa.value}</code>
+
+━━━━━━━━━━━━━━
+<b>GAME INFO</b>
+━━━━━━━━━━━━━━
+• Rank     : ${rank.value}
+• Role     : ${role.value}
+• Session  : ${jam.value}
+• Type     : ${komitmen.value}
+
 ━━━━━━━━━━━━━━
 <i>${new Date().toLocaleString()}</i>
 `;
