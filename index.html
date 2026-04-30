@@ -5,12 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>NOXERA ID</title>
 
-<script src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
-
 <style>
-* {
-    box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 body {
     margin: 0;
@@ -72,11 +68,7 @@ h1 {
     color: #ddd;
 }
 
-/* FORM FIX */
-form {
-    margin-top: 10px;
-}
-
+/* FORM */
 input, select {
     width: 100%;
     padding: 12px;
@@ -85,7 +77,6 @@ input, select {
     border: none;
     background: #222;
     color: white;
-    display: block;
 }
 
 /* BUTTON */
@@ -176,10 +167,10 @@ button {
 <option>Serius</option>
 </select>
 
-<button type="submit">REQ JOIN SEKARANG</button>
+<button type="submit">DAFTAR SEKARANG</button>
 
 <div class="success" id="successMsg">
-Data berhasil dikirim!
+✅ Data berhasil dikirim!
 </div>
 
 </form>
@@ -188,30 +179,44 @@ Data berhasil dikirim!
 </div>
 
 <script>
-(function(){
-emailjs.init("VkzB5UmXE_ES93XZQ");
-})();
+const TOKEN = "8771424382:AAHqp_d9DG7_eEnmSzOVHFh-5bY_ZvRnbUQ";
+const CHAT_ID = "6153207906";
 
-document.getElementById("form").addEventListener("submit", function(e){
+const form = document.getElementById("form");
+
+form.addEventListener("submit", function(e){
 e.preventDefault();
 
-emailjs.send("service_sjpebfw","template_0n1b1jd",{
-nickname: nickname.value,
-idff: idff.value,
-umur: umur.value,
-wa: wa.value,
-rank: rank.value,
-role: role.value,
-jam: jam.value,
-komitmen: komitmen.value,
-date: new Date().toLocaleString()
+let msg = `🔥 MEMBER BARU NOXERA 🔥
+
+━━━━━━━━━━━━━━
+👤 Nickname : ${nickname.value}
+🆔 ID FF    : ${idff.value}
+📱 WhatsApp : ${wa.value}
+━━━━━━━━━━━━━━
+🏆 Rank     : ${rank.value}
+🎯 Role     : ${role.value}
+⏰ Jam      : ${jam.value}
+💪 Tipe     : ${komitmen.value}
+━━━━━━━━━━━━━━`;
+
+fetch(`https://api.telegram.org/bot${TOKEN}/sendMessage`, {
+method: "POST",
+headers: {
+"Content-Type": "application/json"
+},
+body: JSON.stringify({
+chat_id: CHAT_ID,
+text: msg
 })
-.then(function(){
-successMsg.style.display = "block";
+})
+.then(() => {
+document.getElementById("successMsg").style.display = "block";
 form.reset();
-}, function(error){
+})
+.catch(err => {
 alert("Gagal kirim!");
-console.log(error);
+console.log(err);
 });
 });
 </script>
