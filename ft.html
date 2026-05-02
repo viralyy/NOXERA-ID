@@ -3,97 +3,122 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bracket Vertikal</title>
+<title>Bracket Model Tengah</title>
 
 <style>
 body {
     background: #0d1117;
-    color: #fff;
+    color: white;
     font-family: sans-serif;
+    display: flex;
+    justify-content: center;
     padding: 20px;
 }
 
-/* CONTAINER */
+/* WRAPPER */
 .bracket {
-    max-width: 400px;
-    margin: auto;
-}
-
-/* ROUND */
-.round {
-    margin-bottom: 40px;
-}
-
-.title {
-    text-align: center;
-    margin-bottom: 15px;
-    font-weight: bold;
-}
-
-/* MATCH */
-.match {
     position: relative;
-    margin-bottom: 20px;
-    padding-left: 20px;
+    width: 320px;
 }
 
-/* GARIS */
-.match::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 10px;
-    width: 2px;
-    height: calc(100% - 20px);
-    background: #555;
-}
-
-.match::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 50%;
-    width: 15px;
-    height: 2px;
-    background: #555;
-}
-
-/* PLAYER (EDITABLE) */
+/* PLAYER BOX */
 .player {
-    background: #161b22;
-    border: 1px solid #30363d;
-    padding: 8px;
-    margin: 5px 0;
-    border-radius: 6px;
+    background: #e6e6e6;
+    color: #000;
+    padding: 6px 10px;
+    border-radius: 8px;
     text-align: center;
     font-size: 14px;
+    position: absolute;
+    min-width: 70px;
+}
 
+/* EDITABLE */
+.player[contenteditable] {
     outline: none;
 }
 
-/* ANIMASI */
-.player {
-    opacity: 0;
-    transform: translateY(10px);
-    animation: fadeUp 0.4s ease forwards;
+/* POSISI */
+.p1 { top: 0; left: 0; }
+.p2 { top: 0; right: 0; }
+.p3 { top: 0; left: 160px; transform: translateX(-50%); }
+.p4 { top: 0; right: 0; } /* nanti kita atur beda baris */
+
+.p3 { top: 80px; left: 0; }
+.p4 { top: 80px; right: 0; }
+
+/* SEMI WINNER */
+.w1 {
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
-.player:nth-child(2) {
-    animation-delay: 0.2s;
+.w2 {
+    top: 130px;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
-@keyframes fadeUp {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+/* FINAL */
+.final {
+    top: 210px;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 /* JUARA */
-.winner {
-    text-align: center;
-    font-size: 26px;
-    margin-top: 20px;
+.champ {
+    top: 300px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 20px;
+}
+
+/* GARIS */
+.line {
+    position: absolute;
+    background: #00ff99;
+}
+
+/* SEMI LINES */
+.l1 { top: 20px; left: 60px; width: 60px; height: 2px; }
+.l2 { top: 20px; right: 60px; width: 60px; height: 2px; }
+
+.l3 { top: 100px; left: 60px; width: 60px; height: 2px; }
+.l4 { top: 100px; right: 60px; width: 60px; height: 2px; }
+
+/* VERTICAL KE TENGAH */
+.v1 {
+    top: 20px;
+    left: 120px;
+    width: 2px;
+    height: 80px;
+}
+
+.v2 {
+    top: 20px;
+    right: 120px;
+    width: 2px;
+    height: 80px;
+}
+
+/* FINAL LINE */
+.middle {
+    top: 170px;
+    left: 50%;
+    width: 120px;
+    height: 2px;
+    transform: translateX(-50%);
+}
+
+/* DOWN TO CHAMP */
+.down {
+    top: 170px;
+    left: 50%;
+    width: 2px;
+    height: 120px;
+    transform: translateX(-50%);
 }
 </style>
 </head>
@@ -102,36 +127,34 @@ body {
 
 <div class="bracket">
 
-    <!-- SEMI FINAL -->
-    <div class="round">
-        <div class="title">Semi Final</div>
+    <!-- PLAYER -->
+    <div class="player p1" contenteditable>Name 1</div>
+    <div class="player p2" contenteditable>Name 2</div>
 
-        <div class="match">
-            <div class="player" contenteditable="true">Klik isi nama</div>
-            <div class="player" contenteditable="true">Klik isi nama</div>
-        </div>
+    <div class="player p3" contenteditable>Name 3</div>
+    <div class="player p4" contenteditable>Name 4</div>
 
-        <div class="match">
-            <div class="player" contenteditable="true">Klik isi nama</div>
-            <div class="player" contenteditable="true">Klik isi nama</div>
-        </div>
-    </div>
+    <!-- SEMI WIN -->
+    <div class="player w1" contenteditable>Win 1</div>
+    <div class="player w2" contenteditable>Win 2</div>
 
     <!-- FINAL -->
-    <div class="round">
-        <div class="title">Final</div>
+    <div class="player final" contenteditable>Final</div>
 
-        <div class="match">
-            <div class="player" contenteditable="true">Pemenang 1</div>
-            <div class="player" contenteditable="true">Pemenang 2</div>
-        </div>
-    </div>
+    <!-- CHAMP -->
+    <div class="player champ">🏆</div>
 
-    <!-- JUARA -->
-    <div class="round">
-        <div class="title">Juara</div>
-        <div class="winner">🏆</div>
-    </div>
+    <!-- GARIS -->
+    <div class="line l1"></div>
+    <div class="line l2"></div>
+    <div class="line l3"></div>
+    <div class="line l4"></div>
+
+    <div class="line v1"></div>
+    <div class="line v2"></div>
+
+    <div class="line middle"></div>
+    <div class="line down"></div>
 
 </div>
 
