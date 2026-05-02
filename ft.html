@@ -3,126 +3,97 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bracket Turnamen</title>
+<title>Bracket Vertikal</title>
 
 <style>
 body {
     background: #0d1117;
     color: #fff;
-    font-family: 'Segoe UI', sans-serif;
-    padding: 15px;
+    font-family: sans-serif;
+    padding: 20px;
 }
 
-/* WRAPPER */
+/* CONTAINER */
 .bracket {
-    display: flex;
-    justify-content: space-between;
-    overflow-x: auto;
-    gap: 40px;
+    max-width: 400px;
+    margin: auto;
 }
 
-/* TIAP ROUND */
+/* ROUND */
 .round {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    min-width: 140px;
+    margin-bottom: 40px;
 }
 
-/* TITLE */
 .title {
     text-align: center;
     margin-bottom: 15px;
     font-weight: bold;
-    opacity: 0;
-    transform: translateY(-10px);
-    animation: fadeDown 0.6s ease forwards;
 }
 
 /* MATCH */
 .match {
     position: relative;
-    margin: 25px 0;
+    margin-bottom: 20px;
+    padding-left: 20px;
 }
 
-/* PLAYER BOX */
+/* GARIS */
+.match::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 10px;
+    width: 2px;
+    height: calc(100% - 20px);
+    background: #555;
+}
+
+.match::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 15px;
+    height: 2px;
+    background: #555;
+}
+
+/* PLAYER (EDITABLE) */
 .player {
     background: #161b22;
     border: 1px solid #30363d;
-    padding: 8px 10px;
-    margin: 6px 0;
+    padding: 8px;
+    margin: 5px 0;
     border-radius: 6px;
     text-align: center;
     font-size: 14px;
 
+    outline: none;
+}
+
+/* ANIMASI */
+.player {
     opacity: 0;
-    transform: translateX(-20px);
-    animation: slideIn 0.5s ease forwards;
+    transform: translateY(10px);
+    animation: fadeUp 0.4s ease forwards;
 }
 
 .player:nth-child(2) {
     animation-delay: 0.2s;
 }
 
-/* GARIS BRACKET */
-.match::after {
-    content: "";
-    position: absolute;
-    right: -20px;
-    top: 50%;
-    width: 20px;
-    height: 2px;
-    background: #555;
-}
-
-/* CONNECTOR */
-.round:not(:last-child) .match::before {
-    content: "";
-    position: absolute;
-    right: -20px;
-    top: 0;
-    width: 2px;
-    height: 100%;
-    background: #555;
-}
-
-/* JUARA */
-.winner {
-    font-size: 30px;
-    text-align: center;
-    margin-top: 40px;
-    opacity: 0;
-    animation: pop 0.8s ease forwards 0.8s;
-}
-
-/* ANIMATIONS */
-@keyframes slideIn {
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-@keyframes fadeDown {
+@keyframes fadeUp {
     to {
         opacity: 1;
         transform: translateY(0);
     }
 }
 
-@keyframes pop {
-    0% { transform: scale(0.5); opacity: 0; }
-    80% { transform: scale(1.2); }
-    100% { transform: scale(1); opacity: 1; }
-}
-
-/* MOBILE SCROLL SMOOTH */
-.bracket::-webkit-scrollbar {
-    height: 6px;
-}
-.bracket::-webkit-scrollbar-thumb {
-    background: #444;
-    border-radius: 10px;
+/* JUARA */
+.winner {
+    text-align: center;
+    font-size: 26px;
+    margin-top: 20px;
 }
 </style>
 </head>
@@ -136,13 +107,13 @@ body {
         <div class="title">Semi Final</div>
 
         <div class="match">
-            <div class="player">Name 1</div>
-            <div class="player">Name 2</div>
+            <div class="player" contenteditable="true">Klik isi nama</div>
+            <div class="player" contenteditable="true">Klik isi nama</div>
         </div>
 
         <div class="match">
-            <div class="player">Name 3</div>
-            <div class="player">Name 4</div>
+            <div class="player" contenteditable="true">Klik isi nama</div>
+            <div class="player" contenteditable="true">Klik isi nama</div>
         </div>
     </div>
 
@@ -151,8 +122,8 @@ body {
         <div class="title">Final</div>
 
         <div class="match">
-            <div class="player">Pemenang 1</div>
-            <div class="player">Pemenang 2</div>
+            <div class="player" contenteditable="true">Pemenang 1</div>
+            <div class="player" contenteditable="true">Pemenang 2</div>
         </div>
     </div>
 
